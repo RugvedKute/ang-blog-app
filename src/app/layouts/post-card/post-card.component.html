@@ -1,12 +1,12 @@
-<div class="card shadow-effect">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHw52s6qYdz5Q2-xKEI3VE7UAJcQ67FwcNJg&usqp=CAU">
+<div class="card shadow-effect" *ngIf="postData" [routerLink]="['/post', postData.id]">
+  <img src="{{postData.data.postImgPath}}">
   <div class="card-body">
-    <small class="bg-light text-danger text-center">Design</small>
-    <small class="bg-light text-success text-center ml-3">Featured</small>
-    <small class="text-info  text-center bg-light ml-3">Views - 256,500</small>
-    <h5 class="mt-1">How to Start a blog in 2023 Edited by New Category?</h5>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias quidem magnam ducimus vitae perferendis accusamus, ratione voluptate quasi nobis molestias possimus reiciendis fugit maiores laboriosam distinctio officiis autem. Commodi, numquam.</p>
+    <small class="bg-light text-danger text-center">{{postData.data.category.category}}</small>
+    <small class="bg-light text-success text-center ml-3" *ngIf="postData.isFeatured">Featured</small>
+    <small class="text-info  text-center bg-light ml-3">Views - {{postData.data.views}}</small>
+    <h5 class="mt-1">{{postData.data.title}}</h5>
+    <p>{{postData.data.excerpt}}.</p>
   </div>
-  <small class="bg-light text-warning ml-3">LAST UPDATED - SEPT 20, 2023</small>
+  <small class="bg-light text-warning ml-3">LAST UPDATED - {{postData.data.createdAt.toMillis() | date}}</small>
 
 </div>

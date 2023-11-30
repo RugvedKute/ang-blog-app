@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ang-blog-be151": {
+      "hosting": {
+        "ang-blog-app": [
+          "ang-blog-be151"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ang-blog-be151"
+  }
+}

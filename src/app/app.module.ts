@@ -16,6 +16,11 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { TermsAndConditionsComponent } from './pages/terms-and-conditions/terms-and-conditions.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { PostCardComponent } from './layouts/post-card/post-card.component';
+import {AngularFireModule } from '@angular/fire/compat'
+import { firebaseConfig } from './constants/constants';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+ 
+
 
 @NgModule({
   declarations: [
@@ -32,11 +37,15 @@ import { PostCardComponent } from './layouts/post-card/post-card.component';
     AboutUsComponent,
     TermsAndConditionsComponent,
     ContactUsComponent,
-    PostCardComponent
+    PostCardComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule
+ 
   ],
   providers: [],
   bootstrap: [AppComponent]

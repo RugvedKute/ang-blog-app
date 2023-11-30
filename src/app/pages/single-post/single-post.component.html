@@ -4,50 +4,29 @@
       <div class="col-md-9">
         <div class="card shadow-effect">
           <img
-            src="https://img.freepik.com/free-photo/ultra-detailed-nebula-abstract-wallpaper-4_1562-749.jpg"
+            src="{{singlePostData.postImgPath}}"
             alt="image.png"
           />
           <div class="card-body">
             <div class="row">
               <small class="bg-light text-danger text-center ml-3"
-                >Design</small
+                >{{singlePostData.category.category}}</small
               >
-              <small class="bg-light text-success text-center ml-3"
+              <small class="bg-light text-success text-center ml-3" *ngIf="singlePostData.isFeatured"
                 >Featured</small
               >
               <small class="bg-light text-info text-center ml-3"
-                >View - 100,256</small
+                >View - {{singlePostData.views}}</small
               >
               <small class="bg-light text-warning text-center ml-3"
-                >Last Updated - Sept, 2023</small
+                >Last Updated - {{singlePostData.createdAt.toMillis() | date}}</small
               >
             </div>
             <h2 class="mt-2">
-              How to Start a blog in 2023 Edited by New Category?
+              {{singlePostData.title}}
             </h2>
-            <p class="mt-2">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi
-              eius unde vero nesciunt, ex officia magnam exercitationem ipsum
-              nulla, voluptas maiores saepe neque mollitia quis impedit minima
-              repudiandae dolorum debitis. Lorem ipsum, dolor sit amet
-              consectetur adipisicing elit. Ducimus adipisci fugiat expedita
-              ratione quae atque illum, repellendus maiores dolores consectetur
-              ex consequuntur minus nulla vitae sequi soluta obcaecati
-              necessitatibus ipsa! Lorem ipsum dolor sit, amet consectetur
-              adipisicing elit. Inventore quasi, consequatur iusto labore
-              cupiditate esse? Voluptate eaque dolorem perspiciatis tempore
-              doloribus eligendi veniam porro, cupiditate provident vel quaerat
-              ipsa inventore? Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Dolorum recusandae magnam, id quae quia possimus facilis
-              fugiat tenetur officiis, architecto, praesentium quo. Obcaecati
-              aperiam fugiat mollitia dolores quidem nam iste. Lorem ipsum dolor
-              sit amet consectetur adipisicing elit. Dolorem ducimus consectetur
-              blanditiis praesentium dolores fugiat soluta laborum labore porro,
-              repellat dignissimos et animi voluptas, eius accusantium
-              architecto pariatur veniam facere. Lorem ipsum, dolor sit amet
-              consectetur adipisicing elit. Accusantium similique voluptates
-              dolor nulla eligendi officiis, et est nihil ipsam minima provident
-              deleniti dolores soluta eaque cum, eveniet praesentium quae aut?
+            <p class="mt-2" [innerHTML]="singlePostData.content">
+             
             </p>
           </div>
         </div>
@@ -55,16 +34,11 @@
         <app-comment-list></app-comment-list>
       </div>
       <div class="col-md-3">
-        <div class="mt-2">
-          <app-post-card></app-post-card>
+        <div class="mt-2" *ngFor="let data of similarPostArray">
+          <app-post-card [postData]="data"></app-post-card>
         </div>
-        <div class="mt-2">
-          <app-post-card></app-post-card>
-        </div>
-        <div class="mt-2">
-          <app-post-card></app-post-card>
+       
         </div>
       </div>
     </div>
-  </div>
 </section>
